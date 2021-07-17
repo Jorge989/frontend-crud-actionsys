@@ -1,0 +1,147 @@
+body {
+  // background: #000 url("../../assets/fundo.jpg") no-repeat;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-font-smoothing: antialiased !important;
+  height: 100vh;
+}
+.container {
+  display: flex;
+  align-items: center;
+  margin-top: 70px;
+  justify-content: center;
+  height: 100vh;
+}
+.content {
+  padding-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 0px 1px 3px 0px #222;
+  border-radius: 10px;
+  width: 400px;
+  height: 400px;
+
+  a {
+    cursor: pointer;
+    color: rgb(0, 13, 201);
+  }
+  a:hover {
+    cursor: pointer;
+    color: rgb(22, 79, 221);
+  }
+
+  form {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    flex-direction: column;
+    width: 90%;
+
+    label {
+      display: flex;
+      font-weight: 600;
+      align-items: flex-start;
+      align-self: flex-start;
+      padding-left: 5px;
+    }
+    input {
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #333;
+      height: 36px;
+      padding-left: 10px;
+    }
+    .input-password {
+      width: 100%;
+      position: relative;
+    }
+    #label2 {
+      margin-top: 10px;
+    }
+    .mask {
+      margin-top: 8px;
+      position: absolute;
+      right: 0px;
+      padding-right: 10px;
+
+      width: 40px;
+    }
+    .botao-login {
+      margin-top: 10px;
+      width: 60%;
+      height: 43px;
+      border: none;
+      outline: 0;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 18px;
+      background-color: #6e5af0;
+      color: #9f9fc0;
+      letter-spacing: 1px;
+      box-shadow: 0px 1px 4px 0px rgb(135, 135, 135);
+      transition: 0.4s;
+    }
+    .botao-login2 {
+      margin-top: 10px;
+      width: 60%;
+      height: 43px;
+      border: none;
+      outline: 0;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 18px;
+      background-color: #30247f;
+      color: white;
+      letter-spacing: 1px;
+      box-shadow: 0px 1px 4px 0px rgb(135, 135, 135);
+      transition: 1s;
+    }
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+      color: #fff;
+      gap: 3px;
+      border-radius: 7px;
+      outline: 0;
+      border: none;
+      cursor: pointer;
+      background-color: rgb(0, 0, 99);
+      box-shadow: 0px 1px 5px 1px #333;
+      width: 60%;
+      height: 40px;
+      .spinner {
+        animation: rotate infinite 1s;
+      }
+      #link {
+        margin-top: 20px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+      }
+      #link :hover {
+        margin-top: 0px;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        font-weight: 500;
+      }
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}

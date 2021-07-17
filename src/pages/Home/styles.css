@@ -1,0 +1,157 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px 20px;
+}
+
+.btn-adicionar {
+  width: 99%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+@media (max-width: 600px) {
+  .btn-adicionar {
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+}
+.btn-adicionar svg {
+  color: rgb(238, 238, 238);
+}
+#adicionar {
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  outline: 0;
+  gap: 5px;
+  color: #fff;
+  cursor: pointer;
+  background-color: rgb(5, 114, 232);
+  box-shadow: 0px 1px 3px 0px #222;
+  font-weight: bold;
+  font-size: 17px;
+  text-decoration: none;
+  letter-spacing: 1.6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#adicionar:hover {
+  background-color: rgb(6, 124, 250);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table td,
+.table th {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.table th {
+  background-color: darkblue;
+  color: #ffffff;
+}
+.table tbody td {
+  background-color: #ffffff;
+}
+.table tbody td:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+#bnt-editar {
+  width: 90px;
+  border-radius: 5px;
+  border: none;
+  margin-top: -3px;
+  cursor: pointer;
+  background-color: rgb(255, 134, 54);
+  color: #fff;
+  box-shadow: 0px 1px 3px 0px #222;
+  font-weight: bold !important;
+  height: 30px;
+}
+#bnt-editar:hover {
+  background-color: rgb(255, 149, 79);
+}
+#btn-visualizar {
+  width: 90px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: -3px;
+  background-color: rgb(0, 209, 164);
+  color: #fff;
+  box-shadow: 0px 1px 3px 0px #222;
+  font-weight: bold !important;
+  height: 30px;
+}
+#btn-visualizar:hover {
+  background-color: rgb(1, 220, 172);
+}
+#btn-deletar {
+  width: 90px;
+  border-radius: 5px;
+  border: none;
+  margin-top: -3px;
+  cursor: pointer;
+  background-color: rgb(248, 35, 38);
+  color: #fff;
+  box-shadow: 0px 1px 3px 0px #222;
+  font-weight: bold !important;
+  height: 30px;
+}
+#btn-deletar:hover {
+  background-color: rgb(253, 46, 49);
+}
+/* @media (max-width: 600px) {
+  #btn-deletar,
+  #btn-visualizar,
+  #bnt-editar {
+    height: 20px;
+  }
+} */
+@media (max-width: 600px) {
+  .table thead {
+    display: none;
+  }
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+  .table td {
+    margin-bottom: 15px;
+  }
+  .table td {
+    display: flex;
+    align-items: center;
+
+    text-align: right;
+    padding-left: 50%;
+    text-align: right;
+    position: relative;
+    justify-content: flex-end;
+  }
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+    justify-content: space-between;
+  }
+}
