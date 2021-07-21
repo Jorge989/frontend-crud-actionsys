@@ -13,7 +13,12 @@ body {
   justify-content: center;
   height: 100vh;
 }
-.content {
+@media (max-width: 600px) {
+  .container {
+    margin-top: 0px;
+  }
+}
+.content-cadastro {
   padding-top: 50px;
   display: flex;
   align-items: center;
@@ -143,5 +148,33 @@ body {
         }
       }
     }
+  }
+}
+p {
+  text-align: center;
+}
+@media (max-width: 600px) {
+  p {
+    font-size: 19px !important;
+  }
+}
+strong {
+  text-align: center;
+}
+@media (max-width: 600px) {
+  strong {
+    font-size: 19px !important;
+  }
+}
+@media (max-width: 600px) {
+  .content-cadastro {
+    width: 400px;
+    justify-content: center;
+    padding-top: 0px;
+    padding-bottom: 120px;
+    background-color: transparent;
+    height: 900px;
+    box-shadow: none;
+    padding: 0px 10px 120px;
   }
 }

@@ -96,6 +96,8 @@ function CadastroEmpolyee() {
         ></input>
         <label>Data_nascimento</label>
         <input
+          min="1800-04-01"
+          required
           id="input3"
           onChange={(e) => {
             changebackground();

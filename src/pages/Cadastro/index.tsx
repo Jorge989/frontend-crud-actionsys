@@ -4,6 +4,7 @@ import api from "../../services/api";
 import "./styles.scss";
 import { FaSpinner } from "react-icons/fa";
 import { FiEyeOff } from "react-icons/fi";
+import { useFormik } from "formik";
 import { useAuth } from "../../hooks/AuthContext";
 function Cadastro() {
   const { signIn } = useAuth();
@@ -27,6 +28,7 @@ function Cadastro() {
       setIsChangeBackground(false);
     }
   }
+
   async function handleregister() {
     setLoading(true);
     api
@@ -51,7 +53,7 @@ function Cadastro() {
   }
   return (
     <div className="container">
-      <div className="content">
+      <div className="content-cadastro">
         {" "}
         <h1>Cadastre-se</h1>
         <p>
@@ -67,8 +69,10 @@ function Cadastro() {
             handleregister();
           }}
         >
-          <label>E-Mail</label>
+          <label htmlFor="email">E-Mail</label>
           <input
+            required
+            name="email"
             id="input1"
             onChange={(e) => {
               changebackground();
@@ -76,12 +80,15 @@ function Cadastro() {
             }}
             type="email"
             title="Por favor informar senha"
-            required
             placeholder="Seu melhor e-mail"
           ></input>
-          <label id="label2">Senha</label>
+          <label htmlFor="senha" id="label2">
+            Senha
+          </label>
           <div className="input-password">
             <input
+              required
+              name="senha"
               id="input2"
               onChange={(e) => {
                 changebackground();

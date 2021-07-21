@@ -20,7 +20,7 @@ interface IEmployee {
   data_admissao: string;
 }
 
-function Home() {
+function Employees() {
   const [showModal, setShowModal] = useState(false);
   const OpenModal = () => {
     setShowModal((prev) => !prev);
@@ -198,13 +198,9 @@ function Home() {
             ))}
           </tbody>
         </table>
-        <div className="welcome">
-          <h1>Bem-Vindo! </h1>
-          <h1> {username}</h1>
-        </div>
       </div>
     </body>
   );
 }
 
-export default Home;
+export default Employees;

@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import api from "../../services/api";
-
+import { format, parseISO } from "date-fns";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import "./styles-atualizar.css";
 import { FaSpinner } from "react-icons/fa";
@@ -47,6 +47,14 @@ function CadastroEmpolyee() {
     }
   }
 
+  useEffect(() => {
+    const formatDate = (date: Date): string => {
+      return String(format(date, "yyyy-MM-dd").toLocaleString());
+    };
+    setDatanascimento(data_nascimento);
+  }, [data_admissao, data_nascimento]);
+  console.log("aquiidata", data_nascimento);
+
   async function handleregister() {
     setLoading(true);
     try {
@@ -54,7 +62,7 @@ function CadastroEmpolyee() {
         nome: nome,
 
         email: email,
-        data_nascimento: data_admissao,
+        data_nascimento: data_nascimento,
         nivel: nivel,
         data_admissao: data_admissao,
         setor: setor,
@@ -70,7 +78,15 @@ function CadastroEmpolyee() {
       console.log(error);
     }
   }
+  const formatDate = (date: Date): string => {
+    return String(format(date, "dd/MM/yyyy").toLocaleString());
+  };
 
+  // const birthdayDateFormated = useMemo(() => {
+  //   const dataFormated = format(parseISO(data_nascimento), "yyyy-MM-dd");
+
+  //   return dataFormated;
+  // }, [data_nascimento]);
   return (
     <div className="container2">
       <form
@@ -82,6 +98,7 @@ function CadastroEmpolyee() {
       >
         <label>Nome</label>
         <input
+          required
           value={nome}
           id="input1"
           onChange={(e) => {
@@ -92,6 +109,7 @@ function CadastroEmpolyee() {
         ></input>
         <label>E-mail</label>
         <input
+          required
           value={email}
           id="input2"
           onChange={(e) => {
@@ -102,6 +120,7 @@ function CadastroEmpolyee() {
         ></input>
         <label>Data_nascimento</label>
         <input
+          required
           value={data_nascimento}
           id="input3"
           type="date"
@@ -112,6 +131,7 @@ function CadastroEmpolyee() {
         ></input>
         <label>Data_admissão</label>
         <input
+          required
           value={data_admissao}
           id="input4"
           type="date"
@@ -122,6 +142,7 @@ function CadastroEmpolyee() {
         ></input>
         <label>Nível</label>
         <select
+          required
           value={nivel}
           id="input5"
           onChange={(e) => {
@@ -140,6 +161,7 @@ function CadastroEmpolyee() {
         </select>
         <label>Setor</label>
         <select
+          required
           value={setor}
           id="input6"
           onChange={(e) => {
@@ -160,6 +182,7 @@ function CadastroEmpolyee() {
         <label>Cargo</label>
 
         <select
+          required
           value={cargo}
           id="input7"
           onChange={(e) => {
@@ -186,11 +209,7 @@ function CadastroEmpolyee() {
           </button>
         )}
         {isLoading && (
-          <button
-            className={isChangeBackground ? "botao-login2" : "botao-login"}
-            type="submit"
-            disabled
-          >
+          <button type="submit" disabled>
             Confirmar
             <FaSpinner className="spinner" />
           </button>

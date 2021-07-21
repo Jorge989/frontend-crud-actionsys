@@ -4,3 +4,16 @@ body {
   -webkit-font-smoothing: antialiased !important;
   height: 100vh;
 }
+.error {
+  display: flex;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+.error p {
+  color: rgb(248, 18, 18);
+  margin-top: 10px;
+}

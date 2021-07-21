@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { useSHow } from "../../hooks/ShowContext";
 import api from "../../services/api";
 import "./styles.login.scss";
 import { FaSpinner } from "react-icons/fa";
@@ -14,6 +15,8 @@ function Login() {
   const [isLoading, setLoading] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
   const [inputType, setInputType] = useState("password");
+  const [error, setError] = useState(false);
+  const { username, setUserName } = useSHow();
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown === true ? false : true);
     setInputType(inputType === "password" ? "text" : "password");
@@ -42,6 +45,7 @@ function Login() {
           });
           setLoading(false);
           console.log(response.data);
+          setUserName(response.data.user.email);
           history.push("/home", {
             token: response.data.token,
             username: response.data.user.email,
@@ -50,16 +54,18 @@ function Login() {
         }, 1000);
       })
       .catch(function (error) {
+        setError(true);
         setTimeout(function () {
           setLoading(false);
 
-          console.log(error);
+          console.log("aquiii", { error });
         }, 1000);
       });
   }
+
   return (
     <div className="container">
-      <div className="content">
+      <div className="content-cadastro">
         {" "}
         <h1>Login</h1>
         <p>
@@ -76,6 +82,7 @@ function Login() {
           }}
         >
           <label>E-Mail</label>
+
           <input
             id="input1"
             onChange={(e) => {
@@ -87,9 +94,11 @@ function Login() {
             required
             placeholder="Seu melhor e-mail"
           ></input>
+
           <label id="label2">Senha</label>
           <div className="input-password">
             <input
+              required
               id="input2"
               onChange={(e) => {
                 changebackground();
@@ -127,6 +136,7 @@ function Login() {
           )}
         </form>
       </div>
+      <div className="error">{error && <p>Usuário não econtrado.</p>}</div>
     </div>
   );
 }
